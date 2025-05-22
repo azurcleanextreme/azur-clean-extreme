@@ -1,209 +1,329 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Azur Clean Extrême</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Azur Clean Extrême - Nettoyage de hottes & services</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Montserrat', sans-serif; line-height: 1.6; background: #f4f4f4; color: #333; }
-    header { background: #005f73; color: white; padding: 2rem 1rem; text-align: center; }
-    header h1 { font-size: 2.5rem; }
-    nav { background: #0a9396; text-align: center; padding: 1rem 0; }
-    nav a { color: white; text-decoration: none; margin: 0 1rem; font-weight: bold; }
-    section { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
-    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .service { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .service h3 { color: #005f73; margin-bottom: 1rem; }
-    footer { background: #005f73; color: white; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    /* Style général */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: #f0f4f8;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #0077b6;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0 0 0.3rem 0;
+      font-size: 2.4rem;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem 3rem;
+    }
+    h2 {
+      color: #023e8a;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #0077b6;
+      padding-bottom: 0.4rem;
+    }
+    /* Section services */
+    section.service {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      margin-bottom: 2.5rem;
+    }
+    section.service p {
+      margin-top: 0.4rem;
+    }
+    /* Photos avant-après */
+    .photos {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .photo-box {
+      flex: 1 1 48%;
+      position: relative;
+    }
+    .photo-box img {
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: block;
+    }
+    .photo-label {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 3px 8px;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      font-weight: bold;
+      user-select: none;
+    }
+    /* Formulaire devis */
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    form label {
+      display: block;
+      font-weight: 600;
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: #023e8a;
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="number"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1.8px solid #bbb;
+      transition: border-color 0.3s ease;
+    }
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form input[type="number"]:focus,
+    form select:focus,
+    form textarea:focus {
+      border-color: #0077b6;
+      outline: none;
+    }
+    form textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    form button {
+      margin-top: 2rem;
+      background-color: #0077b6;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #005f86;
+    }
+    /* Contact */
+    .contact-info {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .contact-info a {
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      .photos {
+        flex-direction: column;
+      }
+      .photo-box {
+        flex: 1 1 100%;
+        margin-bottom: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Azur Clean Extrême</h1>
-    <p>Nettoyage extrême à Fréjus et ses environs</p>
-  </header>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <h1>Azur Clean Extrême</h1>
+  <p>Nettoyage professionnel de hottes, fin de chantier et syndrome de Diogène - Fréjus & Var</p>
+</header>
 
-  <section id="services">
-    <h2>Nos Services</h2>
-    <div class="services">
-      <div class="service">
-        <h3>Nettoyage de hottes professionnelles</h3>
-        <p>Spécialistes du nettoyage de hottes de cuisine pour restaurants, collectivités et professionnels de la restauration.</p>
+<main>
+
+  <!-- Service 1 -->
+  <section class="service" id="hotte">
+    <h2>Nettoyage de hotte de cuisine professionnelle</h2>
+    <p>Nous nettoyons en profondeur vos hottes professionnelles : grilles, caissons, conduits, moteurs (en option). Notre service garantit hygiène, sécurité et conformité aux normes.</p>
+    <p><strong>Tarif indicatif : à partir de 200 €</strong></p>
+
+    <div class="photos">
+      <div class="photo-box">
+        <img src="https://via.placeholder.com/500x300?text=Avant+nettoyage+hotte" alt="Photo avant nettoyage hotte" />
+        <div class="photo-label">Avant</div>
       </div>
-      <div class="service">
-        <h3>Débarras et nettoyage extrême</h3>
-        <p>Interventions après sinistres, insalubrité, logements abandonnés ou syndrome de Diogène.</p>
-      </div>
-      <div class="service">
-        <h3>Nettoyage de fin de chantier</h3>
-        <p>Remise en état complète des locaux après travaux, pour particuliers et professionnels.</p>
-      </div>
-      <div class="service">
-        <h3>Désinfection et traitement</h3>
-        <p>Traitement contre les nuisibles, désinfection complète des lieux contaminés ou à risques.</p>
+      <div class="photo-box">
+        <img src="https://via.placeholder.com/500x300?text=Après+nettoyage+hotte" alt="Photo après nettoyage hotte" />
+        <div class="photo-label">Après</div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><strong>Adresse :</strong> 318 rue George Vignerons, Fréjus</p>
-    <p><strong>Téléphone :</strong> 07 75 87 82 86</p>
-    <p><strong>Email :</strong> azurcleanextreme@gmail.com</p>
+  <!-- Service 2 -->
+  <section class="service" id="fin-chantier">
+    <h2>Nettoyage de fin de chantier</h2>
+    <p>Nous intervenons pour un nettoyage complet après travaux : sols, murs, équipements, et déblaiement des déchets et matériaux résiduels.</p>
+    <p>Merci de préciser la surface à nettoyer en m² ainsi que la nature des débris à débarrasser.</p>
+
+    <div class="photos">
+      <div class="photo-box">
+        <img src="https://via.placeholder.com/500x300?text=Avant+fin+de+chantier" alt="Photo avant fin de chantier" />
+        <div class="photo-label">Avant</div>
+      </div>
+      <div class="photo-box">
+        <img src="https://via.placeholder.com/500x300?text=Après+fin+de+chantier" alt="Photo après fin de chantier" />
+        <div class="photo-label">Après</div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Azur Clean Extrême. Tous droits réservés.</p>
-  </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azur Clean Extrême</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #003366;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #005599;
-            text-align: center;
-            padding: 10px;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        section {
-            padding: 30px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        h2 {
-            color: #005599;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        .service {
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
-        form {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #005599;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #003366;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Azur Clean Extrême</h1>
-        <p>Nettoyage professionnel à Fréjus et dans le Var</p>
-    </header>
-    <nav>
-        <a href="#services">Services</a>
-        <a href="#a-propos">À propos</a>
-        <a href="#zone">Zone d’intervention</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <!-- Service 3 -->
+  <section class="service" id="diogene">
+    <h2>Nettoyage syndrome de Diogène</h2>
+    <p>Intervention spécialisée pour le déblaiement et nettoyage intensif dans les cas d’encombrement extrême et accumulation importante de déchets et saletés.</p>
+    <p>Devis personnalisé selon état des lieux.</p>
 
-    <section id="services">
-        <h2>Nos Services</h2>
-        <div class="services">
-            <div class="service">
-                <h3>Nettoyage de hottes</h3>
-                <p>Nettoyage et dégraissage complet des hottes de cuisine professionnelles.</p>
-            </div>
-            <div class="service">
-                <h3>Nettoyage extrême</h3>
-                <p>Intervention en cas de logements insalubres, sinistres ou abandonnés.</p>
-            </div>
-            <div class="service">
-                <h3>Locaux professionnels</h3>
-                <p>Nettoyage régulier ou ponctuel de bureaux, commerces, entrepôts.</p>
-            </div>
-            <div class="service">
-                <h3>Désinfection</h3>
-                <p>Désinfection approfondie après contamination, virus ou moisissure.</p>
-            </div>
-        </div>
-    </section>
+    <div class="photos">
+      <div class="photo-box">
+        <img src="https://via.placeholder.com/500x300?text=Avant+syndrome+de+Diogene" alt="Photo avant syndrome de Diogène" />
+        <div class="photo-label">Avant</div>
+      </div>
+      <div class="photo-box">
+        <img src="https://via.placeholder.com/500x300?text=Après+syndrome+de+Diogene" alt="Photo après syndrome de Diogène" />
+        <div class="photo-label">Après</div>
+      </div>
+    </div>
+  </section>
 
-    <section id="a-propos">
-        <h2>À propos</h2>
-        <p>Basée à Fréjus, Azur Clean Extrême est une entreprise spécialisée dans le nettoyage extrême et professionnel. Nous intervenons rapidement pour les professionnels et particuliers dans le Var.</p>
-    </section>
+  <!-- Formulaire de devis -->
+  <section>
+    <h2>Demande de devis en ligne</h2>
+    <form id="devisForm" onsubmit="return validateForm()" novalidate>
+      <label for="typeNettoyage">Type de nettoyage <span style="color:red">*</span></label>
+      <select id="typeNettoyage" name="typeNettoyage" required>
+        <option value="">-- Choisissez une option --</option>
+        <option value="Hotte de cuisine">Hotte de cuisine</option>
+        <option value="Fin de chantier">Fin de chantier</option>
+        <option value="Syndrome de Diogène">Syndrome de Diogène</option>
+      </select>
 
-    <section id="zone">
-        <h2>Zone d’intervention</h2>
-        <p>Nous intervenons à Fréjus, Saint-Raphaël, Draguignan, Fayence, et dans tout le département du Var (83).</p>
-    </section>
+      <label for="longueurHotte">Longueur de la hotte (en mètres)</label>
+      <input type="number" id="longueurHotte" name="longueurHotte" min="0" step="0.1" placeholder="Exemple : 2.5" />
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Contactez-nous pour un devis gratuit :</p>
-        <form>
-            <input type="text" placeholder="Votre nom" required>
-            <input type="email" placeholder="Votre e-mail" required>
-            <textarea placeholder="Votre message" rows="5" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-        <p>Email : azurcleanextreme@gmail.com<br>
-        Téléphone : 07 75 87 82 86<br>
-        Adresse : 318 rue George Vignerons, Fréjus</p>
-    </section>
+      <label for="nombreGrilles">Nombre de grilles de hotte</label>
+      <input type="number" id="nombreGrilles" name="nombreGrilles" min="0" placeholder="Exemple : 3" />
 
-    <footer>
-        <p>&copy; 2025 Azur Clean Extrême. Tous droits réservés.</p>
-    </footer>
+      <label for="nettoyageConduit">Souhaitez-vous nettoyer le conduit ?</label>
+      <select id="nettoyageConduit" name="nettoyageConduit">
+        <option value="Non" selected>Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <label for="nettoyageMoteur">Souhaitez-vous nettoyer le moteur ?</label>
+      <select id="nettoyageMoteur" name="nettoyageMoteur">
+        <option value="Non" selected>Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <label for="surfaceChantier">Surface à nettoyer (en m²) - pour fin de chantier</label>
+      <input type="number" id="surfaceChantier" name="surfaceChantier" min="0" placeholder="Exemple : 50" />
+
+      <label for="elementsDebarasser">Éléments à débarrasser (déchets, matériaux, encombrants...)</label>
+      <textarea id="elementsDebarasser" name="elementsDebarasser" placeholder="Décrivez les éléments à débarrasser"></textarea>
+
+      <label for="nomContact">Nom complet <span style="color:red">*</span></label>
+      <input type="text" id="nomContact" name="nomContact" required placeholder="Votre nom complet" />
+
+      <label for="emailContact">Adresse email <span style="color:red">*</span></label>
+      <input type="email" id="emailContact" name="emailContact" required placeholder="Votre email" />
+
+      <label for="telContact">Téléphone</label>
+      <input type="text" id="telContact" name="telContact" placeholder="Exemple : 06 12 34 56 78" />
+
+      <label for="adresseChantier">Adresse du chantier / intervention</label>
+      <input type="text" id="adresseChantier" name="adresseChantier" placeholder="Adresse complète" />
+
+      <label for="commentaires">Commentaires ou questions supplémentaires</label>
+      <textarea id="commentaires" name="commentaires" placeholder="Votre message ici..."></textarea>
+
+      <button type="submit">Envoyer la demande de devis</button>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-info">
+    <h2>Contactez-nous</h2>
+    <p>Téléphone : <a href="tel:+33775878286">07 75 87 82 86</a></p>
+    <p>Email : <a href="mailto:azurcleanextreme@gmail.com">azurcleanextreme@gmail.com</a></p>
+    <p>Adresse : 318 rue George Vignerons, 83600 Fréjus</p>
+  </section>
+
+</main>
+
+<script>
+  // Validation simple avant envoi
+  function validateForm() {
+    const form = document.getElementById('devisForm');
+    const type = form.typeNettoyage.value;
+    const nom = form.nomContact.value.trim();
+    const email = form.emailContact.value.trim();
+
+    if (!type) {
+      alert('Veuillez sélectionner un type de nettoyage.');
+      return false;
+    }
+    if (!nom) {
+      alert('Veuillez saisir votre nom complet.');
+      return false;
+    }
+    if (!email) {
+      alert('Veuillez saisir une adresse email valide.');
+      return false;
+    }
+    // Email regex basique
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Veuillez saisir une adresse email correcte.');
+      return false;
+    }
+
+    alert('Votre demande de devis a bien été envoyée. Nous vous répondrons rapidement.');
+    // Ici vous pouvez ajouter un traitement réel (envoi via backend, API, etc.)
+    form.reset();
+    return false; // Pour demo on bloque la soumission réelle
+  }
+</script>
+
 </body>
 </html>
