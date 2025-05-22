@@ -1,73 +1,143 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Azur Clean Extrême</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f7f7f7;
-      color: #333;
-    }
-    header {
-      background-color: #0077b6;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      color: #0077b6;
-    }
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azur Clean Extrême</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #005599;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h2 {
+            color: #005599;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .service {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #005599;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003366;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Azur Clean Extrême</h1>
+        <p>Nettoyage professionnel à Fréjus et dans le Var</p>
+    </header>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#zone">Zone d’intervention</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-  <header>
-    <h1>Azur Clean Extrême</h1>
-    <p>Spécialiste du nettoyage professionnel à Fréjus et ses environs</p>
-  </header>
+    <section id="services">
+        <h2>Nos Services</h2>
+        <div class="services">
+            <div class="service">
+                <h3>Nettoyage de hottes</h3>
+                <p>Nettoyage et dégraissage complet des hottes de cuisine professionnelles.</p>
+            </div>
+            <div class="service">
+                <h3>Nettoyage extrême</h3>
+                <p>Intervention en cas de logements insalubres, sinistres ou abandonnés.</p>
+            </div>
+            <div class="service">
+                <h3>Locaux professionnels</h3>
+                <p>Nettoyage régulier ou ponctuel de bureaux, commerces, entrepôts.</p>
+            </div>
+            <div class="service">
+                <h3>Désinfection</h3>
+                <p>Désinfection approfondie après contamination, virus ou moisissure.</p>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>Qui sommes-nous ?</h2>
-    <p>Azur Clean Extrême est une entreprise basée à Fréjus, spécialisée dans le nettoyage professionnel. Nous intervenons pour des missions de nettoyage extrême, de désinfection et d’entretien dans le Var.</p>
-  </section>
+    <section id="a-propos">
+        <h2>À propos</h2>
+        <p>Basée à Fréjus, Azur Clean Extrême est une entreprise spécialisée dans le nettoyage extrême et professionnel. Nous intervenons rapidement pour les professionnels et particuliers dans le Var.</p>
+    </section>
 
-  <section>
-    <h2>Nos services</h2>
-    <ul>
-      <li>🧼 Nettoyage de hottes de cuisine professionnelles</li>
-      <li>🏚 Nettoyage après sinistre ou décès</li>
-      <li>🧽 Débarras et remise en état de logements insalubres</li>
-      <li>🧴 Désinfection complète des locaux</li>
-    </ul>
-  </section>
+    <section id="zone">
+        <h2>Zone d’intervention</h2>
+        <p>Nous intervenons à Fréjus, Saint-Raphaël, Draguignan, Fayence, et dans tout le département du Var (83).</p>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p><strong>📞 Téléphone :</strong> 07 75 87 82 86</p>
-    <p><strong>📧 Email :</strong> azurcleanextreme@gmail.com</p>
-    <p><strong>📍 Adresse :</strong> 318 rue George Vignerons, Fréjus</p>
-  </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Contactez-nous pour un devis gratuit :</p>
+        <form>
+            <input type="text" placeholder="Votre nom" required>
+            <input type="email" placeholder="Votre e-mail" required>
+            <textarea placeholder="Votre message" rows="5" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+        <p>Email : azurcleanextreme@gmail.com<br>
+        Téléphone : 07 75 87 82 86<br>
+        Adresse : 318 rue George Vignerons, Fréjus</p>
+    </section>
 
-  <footer>
-    &copy; 2025 Azur Clean Extrême - Tous droits réservés
-  </footer>
-
+    <footer>
+        <p>&copy; 2025 Azur Clean Extrême. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
